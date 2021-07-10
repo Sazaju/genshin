@@ -59,7 +59,7 @@ class PlayerStateHistoryFactoryTest {
 		ItemState<?> item1 = mockItem();
 		ItemState<?> item2 = mockItem();
 		ItemState<?> item3 = mockItem();
-		PlayerState emptyState = PlayerState.empty();
+		PlayerState source = PlayerState.empty();
 
 		List<Arguments> cases = new LinkedList<>();
 		{
@@ -70,10 +70,10 @@ class PlayerStateHistoryFactoryTest {
 			Set<PlayerStateHistory> possibleHistories = new HashSet<>();
 			possibleHistories.add(//
 					PlayerStateHistory//
-							.fromState(emptyState)//
+							.fromState(source)//
 							.appendRecipe(recipe1)//
 			);
-			cases.add(arguments(emptyState, target, name(recipesProvider), possibleHistories));
+			cases.add(arguments(source, target, name(recipesProvider), possibleHistories));
 		}
 		{
 			// Constrained recipes which can only be taken in one order
@@ -84,15 +84,15 @@ class PlayerStateHistoryFactoryTest {
 			RecipesProvider recipesProvider = name(() -> Stream.of(recipe1, recipe2, recipe3));
 			Set<PlayerStateHistory> possibleHistories = new HashSet<>();
 			possibleHistories.add(PlayerStateHistory//
-					.fromState(emptyState)//
+					.fromState(source)//
 					.appendRecipe(recipe1)//
 					.appendRecipe(recipe2)//
 					.appendRecipe(recipe3)//
 			);
-			cases.add(arguments(emptyState, target, name(recipesProvider), possibleHistories));
+			cases.add(arguments(source, target, name(recipesProvider), possibleHistories));
 		}
 		{
-			// TOOD Support this case
+			// TODO Support this case
 			// Constrained recipes where we need to guess intermediary steps
 			PlayerState target = PlayerState.fromMap(Map.of(item3, 1));
 			Recipe recipe1 = Recipe.fromDiff(Map.of(item1, 1));
@@ -101,12 +101,12 @@ class PlayerStateHistoryFactoryTest {
 			RecipesProvider recipesProvider = name(() -> Stream.of(recipe1, recipe2, recipe3));
 			Set<PlayerStateHistory> possibleHistories = new HashSet<>();
 			possibleHistories.add(PlayerStateHistory//
-					.fromState(emptyState)//
+					.fromState(source)//
 					.appendRecipe(recipe1)//
 					.appendRecipe(recipe2)//
 					.appendRecipe(recipe3)//
 			);
-			cases.add(arguments(emptyState, target, name(recipesProvider), possibleHistories));
+			cases.add(arguments(source, target, name(recipesProvider), possibleHistories));
 		}
 		{
 			// Unconstrained recipes which can be taken in any order
@@ -121,7 +121,7 @@ class PlayerStateHistoryFactoryTest {
 				Stream.of(recipe1, recipe2, recipe3).filter(except(first)).forEach(second -> {
 					Stream.of(recipe1, recipe2, recipe3).filter(except(first, second)).forEach(third -> {
 						possibleHistories.add(PlayerStateHistory//
-								.fromState(emptyState)//
+								.fromState(source)//
 								.appendRecipe(first)//
 								.appendRecipe(second)//
 								.appendRecipe(third)//
@@ -129,7 +129,7 @@ class PlayerStateHistoryFactoryTest {
 					});
 				});
 			});
-			cases.add(arguments(emptyState, target, name(recipesProvider), possibleHistories));
+			cases.add(arguments(source, target, name(recipesProvider), possibleHistories));
 		}
 		return cases.stream();
 	}

@@ -40,8 +40,6 @@ import fr.sazaju.genshin.tab.Tab;
 public class Main {
 
 	public static void main(String[] args) {
-		PlayerState data = PlayerState.empty();
-
 		Weapon weapon = WeaponType.LION_S_ROAR.buildInstance()//
 				.withWeaponLevel(1)//
 				.create();
@@ -86,7 +84,7 @@ public class Main {
 		System.out.println("[Total cost]");
 		displayEntries(totalCost.streamCosts());
 
-		data = data.update(Stream.of(//
+		PlayerState data = PlayerState.empty().update(Stream.of(//
 				ItemEntry.of(weapon), //
 				ItemEntry.of(MORA.itemState(), Integer.MAX_VALUE), //
 				ItemEntry.of(LAPIS.itemState(), 200), //
