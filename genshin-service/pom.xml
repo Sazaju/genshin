@@ -51,11 +51,11 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>${maven-jar.version}</version>
 				<configuration>
-					<archive>
-						<manifestEntries>
-							<Automatic-Module-Name>fr.sazaju.genshin.service</Automatic-Module-Name>
-						</manifestEntries>
-					</archive>
+<!-- 					<archive> -->
+<!-- 						<manifestEntries> -->
+<!-- 							<Automatic-Module-Name>fr.sazaju.genshin.service</Automatic-Module-Name> -->
+<!-- 						</manifestEntries> -->
+<!-- 					</archive> -->
 				</configuration>
 			</plugin>
 			<plugin>

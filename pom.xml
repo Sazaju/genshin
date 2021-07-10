@@ -49,7 +49,7 @@
 
 		<!-- VERSIONS -->
 		<maven-gpg.version>1.6</maven-gpg.version>
-		<maven-javadoc.version>3.2.0</maven-javadoc.version>
+		<maven-javadoc.version>3.3.0</maven-javadoc.version>
 		<maven-release.version>2.5.3</maven-release.version>
 		<maven-source.version>3.2.1</maven-source.version>
 		<maven-surefire.version>3.0.0-M5</maven-surefire.version>

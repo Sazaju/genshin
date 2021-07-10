@@ -25,7 +25,13 @@ public class FlatMappingSpliterator<T, R> extends Spliterators.AbstractSpliterat
 	 * fixed</a> but seems not. Updating the JDK may solve it again. It can be
 	 * disabled with the property <code>stream.flatmap.usestandard</code>.
 	 * 
-	 * @see {@link Stream#flatMap(Function)} for the details of the method.
+	 * @param <T> Input type
+	 * @param <R> Output type
+	 * @param in input {@link Stream}
+	 * @param mapper flattening {@link Function}
+	 * @return flatten {@link Stream}
+	 * 
+	 * @see Stream#flatMap(Function)
 	 */
 	public static <T, R> Stream<R> flatMap(Stream<T> in, Function<? super T, ? extends Stream<? extends R>> mapper) {
 

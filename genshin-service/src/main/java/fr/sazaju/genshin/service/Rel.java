@@ -9,6 +9,9 @@ import org.springframework.hateoas.LinkRelation;
 
 import fr.sazaju.genshin.service.controller.RelsController;
 
+/**
+ * Relations to use for the {@code rel} links.
+ */
 public class Rel {
 	public static class Iana {
 		public static final LinkRelation SELF = IanaLinkRelations.SELF;
