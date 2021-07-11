@@ -1,4 +1,5 @@
 @import './global.css';
+@import './cards.css';
 @import './character-banner/global.css';
 @import './character-banner/configuration.css';
 @import './character-banner/simulator.css';
