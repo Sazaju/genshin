@@ -40,7 +40,7 @@
 	height: 32px;
 	margin: -4px;
 }
-.card .counter {
+.card .label {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -50,7 +50,7 @@
 	border-radius: 0 0 10px 10px;
 	overflow: hidden;
 }
-.card .counter span {
+.card .label span {
 	color: #495366;
 	font-size: 24px;
 	vertical-align: baseline;

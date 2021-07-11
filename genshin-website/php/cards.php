@@ -31,7 +31,7 @@
 			$html  = "<div id='${id}' class='card'>";
 			$html .= 	"<img class='background' src='${background}' />";
 			$html .= 	"<div class='content'><img src='${image}' title='${id}' /></div>";
-			$html .= 	"<div class='counter'><span>${text}</span></div>";
+			$html .= 	"<div class='label'><span>${text}</span></div>";
 			$html .= 	"<div class='star'>${stars}</div>";
 			$html .= "</div>";
 			

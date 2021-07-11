@@ -114,6 +114,8 @@ public class SequentialCoder<D> implements Coder<D, byte[]> {
 					return (PropertyCoder<D, T>) fromLongProperty((Property<D, Long>) property);
 				} else if (valueClass.equals(Boolean.class)) {
 					return (PropertyCoder<D, T>) fromBoolProperty((Property<D, Boolean>) property);
+				} else if (valueClass.equals(String.class)) {
+					return (PropertyCoder<D, T>) fromStringProperty((Property<D, String>) property);
 				} else {
 					throw new IllegalArgumentException("Class not managed: " + valueClass);
 				}
@@ -131,6 +133,26 @@ public class SequentialCoder<D> implements Coder<D, byte[]> {
 			} else {
 				throw new RuntimeException("Definition not managed: " + definition);
 			}
+		}
+		
+		private static <D> PropertyCoder<D, String> fromStringProperty(Property<D, String> property) {
+			return new PropertyCoder<D, String>(property) {
+
+				@Override
+				protected int getBytesSize(D data) {
+					return 1;
+				}
+
+				@Override
+				protected void writeValue(String value, DataOutputStream dos) throws IOException {
+					dos.writeUTF(value);
+				}
+
+				@Override
+				protected String readValue(DataInputStream dis) throws IOException {
+					return dis.readUTF();
+				}
+			};
 		}
 
 		private static <D> PropertyCoder<D, Boolean> fromBoolProperty(Property<D, Boolean> property) {

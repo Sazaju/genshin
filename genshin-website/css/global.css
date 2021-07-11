@@ -13,8 +13,10 @@
 	border: 1px solid blue;
 	box-sizing: border-box;
 	width: 25%;
+	height: 4em;
+	text-align: center;
+	vertical-align: middle;
 	float: left;
-	padding: 1em;
 	margin: 0;
 	font-size: large;
 	background-color: DarkTurquoise;

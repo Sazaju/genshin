@@ -24,6 +24,7 @@ public class MainController {
 		model.add(linkTo(methodOn(MainController.class).getAbout()).withRel(Rel.Iana.ABOUT));
 		model.add(linkTo(methodOn(PackController.class).getPacks()).withRel(Rel.Packs.PACKS));
 		model.add(linkTo(methodOn(CharacterBannerController.class).getBanner()).withRel(Rel.Banners.CHARACTER_BANNER));
+		model.add(linkTo(methodOn(PlayerController.class).getPlayer()).withRel(Rel.Player.PLAYER));
 		return model;
 	}
 

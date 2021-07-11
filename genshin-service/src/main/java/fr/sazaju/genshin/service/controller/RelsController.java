@@ -117,4 +117,16 @@ public class RelsController {
 	public Object nextConfiguration() {
 		throw new NotImplementedException();
 	}
+	
+	@GetMapping("/player")
+	@ResponseBody
+	public Object player() {
+		throw new NotImplementedException();
+	}
+	
+	@GetMapping("/ascension-materials")
+	@ResponseBody
+	public Object ascensionMaterials() {
+		throw new NotImplementedException();
+	}
 }

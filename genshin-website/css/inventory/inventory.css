@@ -4,3 +4,30 @@
 	border: solid 1px red;
  */
 }
+
+#inventory-tab-list {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+#inventory-tab-list button {
+	display: block;
+	border: 1px solid green;
+	box-sizing: border-box;
+	width: 11.1%;
+	height: 4em;
+	text-align: center;
+	vertical-align: middle;
+	float: left;
+	margin: 0;
+	font-size: large;
+	background-color: darkseagreen;
+}
+#inventory-tab-list button.selected {
+	background-color: Aquamarine;
+}
+#inventory-tabs {
+	clear: both;
+	padding-top: 1em;
+}

@@ -17,10 +17,12 @@ import org.springframework.hateoas.LinkRelation;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 
+import fr.sazaju.genshin.PlayerState;
 import fr.sazaju.genshin.banner.character.Wish;
 import fr.sazaju.genshin.model.Pack;
 import fr.sazaju.genshin.service.Rel;
 import fr.sazaju.genshin.service.controller.coder.ConfigurationDefinition.Configuration;
+import fr.sazaju.genshin.tab.Slot;
 
 public class Linker {
 	private final Predicate<LinkRelation> relationFilter;
@@ -146,6 +148,20 @@ public class Linker {
 				() -> methodOn(CharacterBannerController.class).getStats(configurationSerializer.apply(configuration)), //
 				Rel.Banners.CONFIGURATION, () -> methodOn(CharacterBannerController.class)
 						.getConfiguration(configurationSerializer.apply(configuration))//
+		));
+	}
+	
+	public EntityModel<PlayerState> decoratePlayer(EntityModel<PlayerState> model, Function<PlayerState, String> playerSerializer) {
+		PlayerState playerState = model.getContent();
+		return addFilteredLinks(model, Map.of(//
+				Rel.Iana.SELF, () -> methodOn(PlayerController.class).getPlayer(playerSerializer.apply(playerState)), //
+				Rel.Player.ASCENSION_MATERIALS, () -> methodOn(PlayerController.class).getAscensionMaterials(playerSerializer.apply(playerState)) //
+		));
+	}
+	
+	public CollectionModel<Slot> decorateSlots(CollectionModel<Slot> model, PlayerState playerState, Function<PlayerState, String> playerSerializer) {
+		return addFilteredLinks(model, Map.of(//
+				Rel.Iana.SELF, () -> methodOn(PlayerController.class).getAscensionMaterials(playerSerializer.apply(playerState)) //
 		));
 	}
 

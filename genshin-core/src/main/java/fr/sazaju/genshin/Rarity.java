@@ -31,4 +31,10 @@ public enum Rarity {
 				.filter(rarity -> rarity.stars >= minStars && rarity.stars <= maxStars)//
 				.collect(Collectors.toSet());
 	}
+
+	public static Rarity valueOf(int stars) {
+		return Stream.of(values())//
+				.filter(rarity -> rarity.stars == stars)//
+				.findAny().orElseThrow();
+	}
 }

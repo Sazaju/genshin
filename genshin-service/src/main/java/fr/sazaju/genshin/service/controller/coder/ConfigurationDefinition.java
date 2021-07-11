@@ -21,12 +21,12 @@ public class ConfigurationDefinition {
 	}
 
 	private static final Property<Configuration, Settings> settings = //
-			Property.onDefinition(SettingsDefinition.V1, simulator -> simulator.settings);
+			Property.onDefinition(SettingsDefinition.V1, configuration -> configuration.settings);
 	private static final Property<Configuration, State> state = //
-			Property.onDefinition(StateDefinition.V1, simulator -> simulator.state);
+			Property.onDefinition(StateDefinition.V1, configuration -> configuration.state);
 	private static final Property<Configuration, NumberGeneratorDescriptor<?>> numberGeneratorDescriptor = //
 			Property.onDefinition(NumberGeneratorDescriptorDefinition.V1,
-					simulator -> simulator.numberGeneratorDescriptor);
+					configuration -> configuration.numberGeneratorDescriptor);
 
 	public static final Definition<Configuration> V1 = Definition.onProperties(//
 			List.of(//

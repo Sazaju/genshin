@@ -32,6 +32,11 @@ public class Rel {
 		public static final LinkRelation NEXT_ORDERS = customRelation(RelsController::nextOrders);
 	}
 
+	public static class Player {
+		public static final LinkRelation PLAYER = customRelation(RelsController::player);
+		public static final LinkRelation ASCENSION_MATERIALS = customRelation(RelsController::ascensionMaterials);
+	}
+
 	public static class Banners {
 		public static final LinkRelation CHARACTER_BANNER = customRelation(RelsController::characterBanner);
 		public static final LinkRelation STATS = customRelation(RelsController::stats);
