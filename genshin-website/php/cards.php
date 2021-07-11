@@ -4,8 +4,8 @@
 		public $rarity;
 		public $image;
 		
-		function __construct($idGroup, $rarity, $image) {
-			$this->id = $rarity === 0 ? $idGroup : $idGroup."_".$rarity;
+		function __construct($idTemplate, $rarity, $image) {
+			$this->id = str_replace("{}", $rarity, $idTemplate);
 			$this->rarity = $rarity;
 			$this->image = $image;
 		}
@@ -202,272 +202,272 @@
 				$cards[] = new Card("initiates_flower", 1, "https://static.wikia.nocookie.net/gensin-impact/images/2/27/Item_Initiate%27s_Flower.png");
 				$cards[] = new Card("initiates_feather", 1, "https://static.wikia.nocookie.net/gensin-impact/images/a/a0/Item_Initiate%27s_Feather.png");
 				foreach(array(1, 2, 3) as $rarity) {
-					$cards[] = new Card("adventurers_flower", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/ec/Item_Adventurer%27s_Flower.png");
-					$cards[] = new Card("adventurers_feather", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/3/30/Item_Adventurer%27s_Tail_Feather.png");
-					$cards[] = new Card("adventurers_pocket_watch", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/f6/Item_Adventurer%27s_Pocket_Watch.png");
-					$cards[] = new Card("adventurers_golden_goblet", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/ae/Item_Adventurer%27s_Golden_Goblet.png");
-					$cards[] = new Card("adventurers_bandana", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/43/Item_Adventurer%27s_Bandana.png");
+					$cards[] = new Card("adventurers_flower_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/ec/Item_Adventurer%27s_Flower.png");
+					$cards[] = new Card("adventurers_feather_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/3/30/Item_Adventurer%27s_Tail_Feather.png");
+					$cards[] = new Card("adventurers_pocket_watch_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/f6/Item_Adventurer%27s_Pocket_Watch.png");
+					$cards[] = new Card("adventurers_golden_goblet_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/ae/Item_Adventurer%27s_Golden_Goblet.png");
+					$cards[] = new Card("adventurers_bandana_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/43/Item_Adventurer%27s_Bandana.png");
 				}
 				foreach(array(1, 2, 3) as $rarity) {
-					$cards[] = new Card("lucky_dogs_clover", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/e0/Item_Lucky_Dog%27s_Clover.png");
-					$cards[] = new Card("lucky_dogs_eagle_feather", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/ac/Item_Lucky_Dog%27s_Eagle_Feather.png");
-					$cards[] = new Card("lucky_dogs_hourglass", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/50/Item_Lucky_Dog%27s_Hourglass.png");
-					$cards[] = new Card("lucky_dogs_goblet", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/c/c1/Item_Lucky_Dog%27s_Goblet.png");
-					$cards[] = new Card("lucky_dogs_silver_circlet", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/6a/Item_Lucky_Dog%27s_Silver_Circlet.png");
+					$cards[] = new Card("lucky_dogs_clover_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/e0/Item_Lucky_Dog%27s_Clover.png");
+					$cards[] = new Card("lucky_dogs_eagle_feather_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/ac/Item_Lucky_Dog%27s_Eagle_Feather.png");
+					$cards[] = new Card("lucky_dogs_hourglass_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/50/Item_Lucky_Dog%27s_Hourglass.png");
+					$cards[] = new Card("lucky_dogs_goblet_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/c/c1/Item_Lucky_Dog%27s_Goblet.png");
+					$cards[] = new Card("lucky_dogs_silver_circlet_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/6a/Item_Lucky_Dog%27s_Silver_Circlet.png");
 				}
 				foreach(array(1, 2, 3) as $rarity) {
-					$cards[] = new Card("traveling_doctors_silver_lotus", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Item_Traveling_Doctor%27s_Silver_Lotus.png");
-					$cards[] = new Card("traveling_doctors_owl_feather", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/01/Item_Traveling_Doctor%27s_Owl_Feather.png");
-					$cards[] = new Card("traveling_doctors_pocket_watch", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b7/Item_Traveling_Doctor%27s_Pocket_Watch.png");
-					$cards[] = new Card("traveling_doctors_medicine_pot", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/2/25/Item_Traveling_Doctor%27s_Medicine_Pot.png");
-					$cards[] = new Card("traveling_doctors_handkerchief", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/18/Item_Traveling_Doctor%27s_Handkerchief.png");
+					$cards[] = new Card("traveling_doctors_silver_lotus_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Item_Traveling_Doctor%27s_Silver_Lotus.png");
+					$cards[] = new Card("traveling_doctors_owl_feather_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/01/Item_Traveling_Doctor%27s_Owl_Feather.png");
+					$cards[] = new Card("traveling_doctors_pocket_watch_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b7/Item_Traveling_Doctor%27s_Pocket_Watch.png");
+					$cards[] = new Card("traveling_doctors_medicine_pot_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/2/25/Item_Traveling_Doctor%27s_Medicine_Pot.png");
+					$cards[] = new Card("traveling_doctors_handkerchief_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/18/Item_Traveling_Doctor%27s_Handkerchief.png");
 				}
 				foreach(array(3, 4) as $rarity) {
-					$cards[] = new Card("heart_of_comradeship", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/fc/Item_Heart_of_Comradeship.png");
-					$cards[] = new Card("feather_of_homecoming", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/f0/Item_Feather_of_Homecoming.png");
-					$cards[] = new Card("sundial_of_the_sojourner", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/93/Item_Sundial_of_the_Sojourner.png");
-					$cards[] = new Card("goblet_of_the_sojourner", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/06/Item_Goblet_of_the_Sojourner.png");
-					$cards[] = new Card("crown_of_parting", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/2/25/Item_Crown_of_Parting.png");
+					$cards[] = new Card("heart_of_comradeship_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/fc/Item_Heart_of_Comradeship.png");
+					$cards[] = new Card("feather_of_homecoming_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/f0/Item_Feather_of_Homecoming.png");
+					$cards[] = new Card("sundial_of_the_sojourner_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/93/Item_Sundial_of_the_Sojourner.png");
+					$cards[] = new Card("goblet_of_the_sojourner_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/06/Item_Goblet_of_the_Sojourner.png");
+					$cards[] = new Card("crown_of_parting_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/2/25/Item_Crown_of_Parting.png");
 				}
 				foreach(array(3, 4) as $rarity) {
-					$cards[] = new Card("tiny_miracles_flower", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/68/Item_Tiny_Miracle%27s_Flower.png");
-					$cards[] = new Card("tiny_miracles_feather", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/89/Item_Tiny_Miracle%27s_Feather.png");
-					$cards[] = new Card("tiny_miracles_hourglass", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/14/Item_Tiny_Miracle%27s_Hourglass.png");
-					$cards[] = new Card("tiny_miracles_goblet", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/52/Item_Tiny_Miracle%27s_Goblet.png");
-					$cards[] = new Card("tiny_miracles_earrings", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/7/73/Item_Tiny_Miracle%27s_Earrings.png");
+					$cards[] = new Card("tiny_miracles_flower_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/68/Item_Tiny_Miracle%27s_Flower.png");
+					$cards[] = new Card("tiny_miracles_feather_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/89/Item_Tiny_Miracle%27s_Feather.png");
+					$cards[] = new Card("tiny_miracles_hourglass_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/14/Item_Tiny_Miracle%27s_Hourglass.png");
+					$cards[] = new Card("tiny_miracles_goblet_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/52/Item_Tiny_Miracle%27s_Goblet.png");
+					$cards[] = new Card("tiny_miracles_earrings_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/7/73/Item_Tiny_Miracle%27s_Earrings.png");
 				}
 				foreach(array(3, 4) as $rarity) {
-					$cards[] = new Card("berserkers_rose", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/c/c1/Item_Berserker%27s_Rose.png");
-					$cards[] = new Card("berserkers_indigo_feather", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/10/Item_Berserker%27s_Indigo_Feather.png");
-					$cards[] = new Card("berserkers_timepiece", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/5c/Item_Berserker%27s_Timepiece.png");
-					$cards[] = new Card("berserkers_bone_goblet", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/d/da/Item_Berserker%27s_Bone_Goblet.png");
-					$cards[] = new Card("berserkers_battle_mask", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/5e/Item_Berserker%27s_Battle_Mask.png");
+					$cards[] = new Card("berserkers_rose_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/c/c1/Item_Berserker%27s_Rose.png");
+					$cards[] = new Card("berserkers_indigo_feather_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/10/Item_Berserker%27s_Indigo_Feather.png");
+					$cards[] = new Card("berserkers_timepiece_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/5c/Item_Berserker%27s_Timepiece.png");
+					$cards[] = new Card("berserkers_bone_goblet_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/d/da/Item_Berserker%27s_Bone_Goblet.png");
+					$cards[] = new Card("berserkers_battle_mask_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/5e/Item_Berserker%27s_Battle_Mask.png");
 				}
 				foreach(array(3, 4) as $rarity) {
-					$cards[] = new Card("instructors_brooch", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/3/35/Item_Instructor%27s_Brooch.png");
-					$cards[] = new Card("instructors_feather_accessory", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/af/Item_Instructor%27s_Feather_Accessory.png");
-					$cards[] = new Card("instructors_pocket_watch", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/41/Item_Instructor%27s_Pocket_Watch.png");
-					$cards[] = new Card("instructors_tea_cup", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/ad/Item_Instructor%27s_Tea_Cup.png");
-					$cards[] = new Card("instructors_cap", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/d/da/Item_Instructor%27s_Cap.png");
+					$cards[] = new Card("instructors_brooch_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/3/35/Item_Instructor%27s_Brooch.png");
+					$cards[] = new Card("instructors_feather_accessory_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/af/Item_Instructor%27s_Feather_Accessory.png");
+					$cards[] = new Card("instructors_pocket_watch_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/41/Item_Instructor%27s_Pocket_Watch.png");
+					$cards[] = new Card("instructors_tea_cup_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/ad/Item_Instructor%27s_Tea_Cup.png");
+					$cards[] = new Card("instructors_cap_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/d/da/Item_Instructor%27s_Cap.png");
 				}
 				foreach(array(3, 4) as $rarity) {
-					$cards[] = new Card("exiles_flower", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/f9/Item_Exile%27s_Flower.png");
-					$cards[] = new Card("exiles_feather", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/4d/Item_Exile%27s_Feather.png");
-					$cards[] = new Card("exiles_pocket_watch", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/e4/Item_Exile%27s_Pocket_Watch.png");
-					$cards[] = new Card("exiles_goblet", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/6a/Item_Exile%27s_Goblet.png");
-					$cards[] = new Card("exiles_circlet", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b3/Item_Exile%27s_Circlet.png");
+					$cards[] = new Card("exiles_flower_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/f9/Item_Exile%27s_Flower.png");
+					$cards[] = new Card("exiles_feather_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/4d/Item_Exile%27s_Feather.png");
+					$cards[] = new Card("exiles_pocket_watch_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/e4/Item_Exile%27s_Pocket_Watch.png");
+					$cards[] = new Card("exiles_goblet_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/6a/Item_Exile%27s_Goblet.png");
+					$cards[] = new Card("exiles_circlet_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b3/Item_Exile%27s_Circlet.png");
 				}
 				foreach(array(3, 4) as $rarity) {
-					$cards[] = new Card("guardians_flower", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/63/Item_Guardian%27s_Flower.png");
-					$cards[] = new Card("guardians_sigil", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/ff/Item_Guardian%27s_Sigil.png");
-					$cards[] = new Card("guardians_clock", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/51/Item_Guardian%27s_Clock.png");
-					$cards[] = new Card("guardians_vessel", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/2/2b/Item_Guardian%27s_Vessel.png");
-					$cards[] = new Card("guardians_band", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/c/c4/Item_Guardian%27s_Band.png");
+					$cards[] = new Card("guardians_flower_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/63/Item_Guardian%27s_Flower.png");
+					$cards[] = new Card("guardians_sigil_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/ff/Item_Guardian%27s_Sigil.png");
+					$cards[] = new Card("guardians_clock_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/51/Item_Guardian%27s_Clock.png");
+					$cards[] = new Card("guardians_vessel_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/2/2b/Item_Guardian%27s_Vessel.png");
+					$cards[] = new Card("guardians_band_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/c/c4/Item_Guardian%27s_Band.png");
 				}
 				foreach(array(3, 4) as $rarity) {
-					$cards[] = new Card("medal_of_the_brave", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9e/Item_Medal_of_the_Brave.png");
-					$cards[] = new Card("prospect_of_the_brave", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/2/2f/Item_Prospect_of_the_Brave.png");
-					$cards[] = new Card("fortitude_of_the_brave", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/ed/Item_Fortitude_of_the_Brave.png");
-					$cards[] = new Card("outset_of_the_brave", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/49/Item_Outset_of_the_Brave.png");
-					$cards[] = new Card("crown_of_the_brave", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b3/Item_Crown_of_the_Brave.png");
+					$cards[] = new Card("medal_of_the_brave_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9e/Item_Medal_of_the_Brave.png");
+					$cards[] = new Card("prospect_of_the_brave_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/2/2f/Item_Prospect_of_the_Brave.png");
+					$cards[] = new Card("fortitude_of_the_brave_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/ed/Item_Fortitude_of_the_Brave.png");
+					$cards[] = new Card("outset_of_the_brave_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/49/Item_Outset_of_the_Brave.png");
+					$cards[] = new Card("crown_of_the_brave_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b3/Item_Crown_of_the_Brave.png");
 				}
 				foreach(array(3, 4) as $rarity) {
-					$cards[] = new Card("martial_artists_red_flower", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/a7/Item_Martial_Artist%27s_Red_Flower.png");
-					$cards[] = new Card("martial_artists_feather_accessory", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/6e/Item_Martial_Artist%27s_Feather_Accessory.png");
-					$cards[] = new Card("martial_artists_water_hourglass", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/06/Item_Martial_Artist%27s_Water_Hourglass.png");
-					$cards[] = new Card("martial_artists_wine_cup", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/8d/Item_Martial_Artist%27s_Wine_Cup.png");
-					$cards[] = new Card("martial_artists_bandana", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/4c/Item_Martial_Artist%27s_Bandana.png");
+					$cards[] = new Card("martial_artists_red_flower_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/a7/Item_Martial_Artist%27s_Red_Flower.png");
+					$cards[] = new Card("martial_artists_feather_accessory_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/6e/Item_Martial_Artist%27s_Feather_Accessory.png");
+					$cards[] = new Card("martial_artists_water_hourglass_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/06/Item_Martial_Artist%27s_Water_Hourglass.png");
+					$cards[] = new Card("martial_artists_wine_cup_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/8d/Item_Martial_Artist%27s_Wine_Cup.png");
+					$cards[] = new Card("martial_artists_bandana_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/4c/Item_Martial_Artist%27s_Bandana.png");
 				}
 				foreach(array(3, 4) as $rarity) {
-					$cards[] = new Card("gamblers_brooch", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/3/39/Item_Gambler%27s_Brooch.png");
-					$cards[] = new Card("gamblers_feather_accessory", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/bf/Item_Gambler%27s_Feather_Accessory.png");
-					$cards[] = new Card("gamblers_pocket_watch", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/f7/Item_Gambler%27s_Pocket_Watch.png");
-					$cards[] = new Card("gamblers_dice_cup", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/fd/Item_Gambler%27s_Dice_Cup.png");
-					$cards[] = new Card("gamblers_earrings", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/43/Item_Gambler%27s_Earrings.png");
+					$cards[] = new Card("gamblers_brooch_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/3/39/Item_Gambler%27s_Brooch.png");
+					$cards[] = new Card("gamblers_feather_accessory_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/bf/Item_Gambler%27s_Feather_Accessory.png");
+					$cards[] = new Card("gamblers_pocket_watch_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/f7/Item_Gambler%27s_Pocket_Watch.png");
+					$cards[] = new Card("gamblers_dice_cup_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/fd/Item_Gambler%27s_Dice_Cup.png");
+					$cards[] = new Card("gamblers_earrings_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/43/Item_Gambler%27s_Earrings.png");
 				}
 				foreach(array(3, 4) as $rarity) {
-					$cards[] = new Card("scholars_bookmark", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/e5/Item_Scholar%27s_Bookmark.png");
-					$cards[] = new Card("scholars_quill_pen", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/52/Item_Scholar%27s_Quill_Pen.png");
-					$cards[] = new Card("scholars_clock", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/01/Item_Scholar%27s_Clock.png");
-					$cards[] = new Card("scholars_ink_cup", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/66/Item_Scholar%27s_Ink_Cup.png");
-					$cards[] = new Card("scholars_lens", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/93/Item_Scholar%27s_Lens.png");
+					$cards[] = new Card("scholars_bookmark_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/e5/Item_Scholar%27s_Bookmark.png");
+					$cards[] = new Card("scholars_quill_pen_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/52/Item_Scholar%27s_Quill_Pen.png");
+					$cards[] = new Card("scholars_clock_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/01/Item_Scholar%27s_Clock.png");
+					$cards[] = new Card("scholars_ink_cup_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/66/Item_Scholar%27s_Ink_Cup.png");
+					$cards[] = new Card("scholars_lens_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/93/Item_Scholar%27s_Lens.png");
 				}
 				foreach(array(3, 4) as $rarity) {
-					$cards[] = new Card("tiara_of_flame", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/18/Item_Tiara_of_Flame.png");
-					$cards[] = new Card("tiara_of_torrents", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/0a/Item_Tiara_of_Torrents.png");
-					$cards[] = new Card("tiara_of_thunder", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/f6/Item_Tiara_of_Thunder.png");
-					$cards[] = new Card("tiara_of_frost", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/14/Item_Tiara_of_Frost.png");
+					$cards[] = new Card("tiara_of_flame_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/18/Item_Tiara_of_Flame.png");
+					$cards[] = new Card("tiara_of_torrents_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/0a/Item_Tiara_of_Torrents.png");
+					$cards[] = new Card("tiara_of_thunder_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/f6/Item_Tiara_of_Thunder.png");
+					$cards[] = new Card("tiara_of_frost_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/14/Item_Tiara_of_Frost.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("gladiators_nostalgia", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b1/Item_Gladiator%27s_Nostalgia.png");
-					$cards[] = new Card("gladiators_destiny", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/94/Item_Gladiator%27s_Destiny.png");
-					$cards[] = new Card("gladiators_longing", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/0c/Item_Gladiator%27s_Longing.png");
-					$cards[] = new Card("gladiators_intoxication", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/6d/Item_Gladiator%27s_Intoxication.png");
-					$cards[] = new Card("gladiators_triumphus", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9b/Item_Gladiator%27s_Triumphus.png");
+					$cards[] = new Card("gladiators_nostalgia_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b1/Item_Gladiator%27s_Nostalgia.png");
+					$cards[] = new Card("gladiators_destiny_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/94/Item_Gladiator%27s_Destiny.png");
+					$cards[] = new Card("gladiators_longing_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/0c/Item_Gladiator%27s_Longing.png");
+					$cards[] = new Card("gladiators_intoxication_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/6d/Item_Gladiator%27s_Intoxication.png");
+					$cards[] = new Card("gladiators_triumphus_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9b/Item_Gladiator%27s_Triumphus.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("troupes_dawnlight", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/ad/Item_Troupe%27s_Dawnlight.png");
-					$cards[] = new Card("bards_arrow_feather", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/4e/Item_Bard%27s_Arrow_Feather.png");
-					$cards[] = new Card("concerts_final_hour", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9e/Item_Concert%27s_Final_Hour.png");
-					$cards[] = new Card("wanderers_string_kettle", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9b/Item_Wanderer%27s_String_Kettle.png");
-					$cards[] = new Card("conductors_top_hat", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/81/Item_Conductor%27s_Top_Hat.png");
+					$cards[] = new Card("troupes_dawnlight_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/ad/Item_Troupe%27s_Dawnlight.png");
+					$cards[] = new Card("bards_arrow_feather_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/4e/Item_Bard%27s_Arrow_Feather.png");
+					$cards[] = new Card("concerts_final_hour_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9e/Item_Concert%27s_Final_Hour.png");
+					$cards[] = new Card("wanderers_string_kettle_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9b/Item_Wanderer%27s_String_Kettle.png");
+					$cards[] = new Card("conductors_top_hat_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/81/Item_Conductor%27s_Top_Hat.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("thundersoothers_heart", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/ef/Item_Thundersoother%27s_Heart.png");
-					$cards[] = new Card("thundersoothers_plume", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/c/cb/Item_Thundersoother%27s_Plume.png");
-					$cards[] = new Card("hour_of_soothing_thunder", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b7/Item_Hour_of_Soothing_Thunder.png");
-					$cards[] = new Card("thundersoothers_goblet", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/87/Item_Thundersoother%27s_Goblet.png");
-					$cards[] = new Card("thundersoothers_diadem", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/14/Item_Thundersoother%27s_Diadem.png");
+					$cards[] = new Card("thundersoothers_heart_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/ef/Item_Thundersoother%27s_Heart.png");
+					$cards[] = new Card("thundersoothers_plume_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/c/cb/Item_Thundersoother%27s_Plume.png");
+					$cards[] = new Card("hour_of_soothing_thunder_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b7/Item_Hour_of_Soothing_Thunder.png");
+					$cards[] = new Card("thundersoothers_goblet_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/87/Item_Thundersoother%27s_Goblet.png");
+					$cards[] = new Card("thundersoothers_diadem_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/14/Item_Thundersoother%27s_Diadem.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("thunderbirds_mercy", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/57/Item_Thunderbird%27s_Mercy.png");
-					$cards[] = new Card("survivor_of_catastrophe", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/e9/Item_Survivor_of_Catastrophe.png");
-					$cards[] = new Card("hourglass_of_thunder", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/94/Item_Hourglass_of_Thunder.png");
-					$cards[] = new Card("omen_of_thunderstorm", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/c/cd/Item_Omen_of_Thunderstorm.png");
-					$cards[] = new Card("thunder_summoners_crown", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Item_Thunder_Summoner%27s_Crown.png");
+					$cards[] = new Card("thunderbirds_mercy_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/57/Item_Thunderbird%27s_Mercy.png");
+					$cards[] = new Card("survivor_of_catastrophe_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/e9/Item_Survivor_of_Catastrophe.png");
+					$cards[] = new Card("hourglass_of_thunder_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/94/Item_Hourglass_of_Thunder.png");
+					$cards[] = new Card("omen_of_thunderstorm_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/c/cd/Item_Omen_of_Thunderstorm.png");
+					$cards[] = new Card("thunder_summoners_crown_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Item_Thunder_Summoner%27s_Crown.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("maidens_distant_love", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/d/dc/Item_Maiden%27s_Distant_Love.png");
-					$cards[] = new Card("maidens_heart-stricken_infatuation", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/5f/Item_Maiden%27s_Heart-stricken_Infatuation.png");
-					$cards[] = new Card("maidens_passing_youth", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/93/Item_Maiden%27s_Passing_Youth.png");
-					$cards[] = new Card("maidens_fleeting_leisure", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/2/23/Item_Maiden%27s_Fleeting_Leisure.png");
-					$cards[] = new Card("maidens_fading_beauty", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/82/Item_Maiden%27s_Fading_Beauty.png");
+					$cards[] = new Card("maidens_distant_love_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/d/dc/Item_Maiden%27s_Distant_Love.png");
+					$cards[] = new Card("maidens_heart-stricken_infatuation_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/5f/Item_Maiden%27s_Heart-stricken_Infatuation.png");
+					$cards[] = new Card("maidens_passing_youth_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/93/Item_Maiden%27s_Passing_Youth.png");
+					$cards[] = new Card("maidens_fleeting_leisure_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/2/23/Item_Maiden%27s_Fleeting_Leisure.png");
+					$cards[] = new Card("maidens_fading_beauty_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/82/Item_Maiden%27s_Fading_Beauty.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("in_remembrance_of_viridescent_fields", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/90/Item_In_Remembrance_of_Viridescent_Fields.png");
-					$cards[] = new Card("viridescent_arrow_feather", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/41/Item_Viridescent_Arrow_Feather.png");
-					$cards[] = new Card("viridescent_venerers_determination", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/8f/Item_Viridescent_Venerer%27s_Determination.png");
-					$cards[] = new Card("viridescent_venerers_vessel", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/ff/Item_Viridescent_Venerer%27s_Vessel.png");
-					$cards[] = new Card("viridescent_venerers_diadem", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/8b/Item_Viridescent_Venerer%27s_Diadem.png");
+					$cards[] = new Card("in_remembrance_of_viridescent_fields_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/90/Item_In_Remembrance_of_Viridescent_Fields.png");
+					$cards[] = new Card("viridescent_arrow_feather_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/41/Item_Viridescent_Arrow_Feather.png");
+					$cards[] = new Card("viridescent_venerers_determination_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/8f/Item_Viridescent_Venerer%27s_Determination.png");
+					$cards[] = new Card("viridescent_venerers_vessel_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/ff/Item_Viridescent_Venerer%27s_Vessel.png");
+					$cards[] = new Card("viridescent_venerers_diadem_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/8b/Item_Viridescent_Venerer%27s_Diadem.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("witchs_flower_of_blaze", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/0f/Item_Witch%27s_Flower_of_Blaze.png");
-					$cards[] = new Card("witchs_ever_burning_plume", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b3/Item_Witch%27s_Ever-Burning_Plume.png");
-					$cards[] = new Card("witchs_end_time", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/14/Item_Witch%27s_End_Time.png");
-					$cards[] = new Card("witchs_heart_flames", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/ba/Item_Witch%27s_Heart_Flames.png");
-					$cards[] = new Card("witchs_scorching_hat", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/ea/Item_Witch%27s_Scorching_Hat.png");
+					$cards[] = new Card("witchs_flower_of_blaze_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/0f/Item_Witch%27s_Flower_of_Blaze.png");
+					$cards[] = new Card("witchs_ever_burning_plume_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b3/Item_Witch%27s_Ever-Burning_Plume.png");
+					$cards[] = new Card("witchs_end_time_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/14/Item_Witch%27s_End_Time.png");
+					$cards[] = new Card("witchs_heart_flames_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/ba/Item_Witch%27s_Heart_Flames.png");
+					$cards[] = new Card("witchs_scorching_hat_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/ea/Item_Witch%27s_Scorching_Hat.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("lavawalkers_resolution", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b5/Item_Lavawalker%27s_Resolution.png");
-					$cards[] = new Card("lavawalkers_salvation", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/0a/Item_Lavawalker%27s_Salvation.png");
-					$cards[] = new Card("lavawalkers_torment", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/3/3f/Item_Lavawalker%27s_Torment.png");
-					$cards[] = new Card("lavawalkers_epiphany", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/1b/Item_Lavawalker%27s_Epiphany.png");
-					$cards[] = new Card("lavawalkers_wisdom", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/63/Item_Lavawalker%27s_Wisdom.png");
+					$cards[] = new Card("lavawalkers_resolution_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b5/Item_Lavawalker%27s_Resolution.png");
+					$cards[] = new Card("lavawalkers_salvation_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/0a/Item_Lavawalker%27s_Salvation.png");
+					$cards[] = new Card("lavawalkers_torment_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/3/3f/Item_Lavawalker%27s_Torment.png");
+					$cards[] = new Card("lavawalkers_epiphany_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/1b/Item_Lavawalker%27s_Epiphany.png");
+					$cards[] = new Card("lavawalkers_wisdom_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/63/Item_Lavawalker%27s_Wisdom.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("royal_flora", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/7/71/Item_Royal_Flora.png");
-					$cards[] = new Card("royal_plume", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/ee/Item_Royal_Plume.png");
-					$cards[] = new Card("royal_pocket_watch", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/1a/Item_Royal_Pocket_Watch.png");
-					$cards[] = new Card("royal_silver_urn", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9c/Item_Royal_Silver_Urn.png");
-					$cards[] = new Card("royal_masque", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/eb/Item_Royal_Masque.png");
+					$cards[] = new Card("royal_flora_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/7/71/Item_Royal_Flora.png");
+					$cards[] = new Card("royal_plume_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/ee/Item_Royal_Plume.png");
+					$cards[] = new Card("royal_pocket_watch_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/1a/Item_Royal_Pocket_Watch.png");
+					$cards[] = new Card("royal_silver_urn_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9c/Item_Royal_Silver_Urn.png");
+					$cards[] = new Card("royal_masque_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/eb/Item_Royal_Masque.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("bloodstained_flower_of_iron", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/5b/Item_Bloodstained_Flower_of_Iron.png");
-					$cards[] = new Card("bloodstained_black_plume", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/5c/Item_Bloodstained_Black_Plume.png");
-					$cards[] = new Card("bloodstained_final_hour", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/8c/Item_Bloodstained_Final_Hour.png");
-					$cards[] = new Card("bloodstained_chevaliers_goblet", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/4f/Item_Bloodstained_Chevalier%27s_Goblet.png");
-					$cards[] = new Card("bloodstained_iron_mask", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/0c/Item_Bloodstained_Iron_Mask.png");
+					$cards[] = new Card("bloodstained_flower_of_iron_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/5b/Item_Bloodstained_Flower_of_Iron.png");
+					$cards[] = new Card("bloodstained_black_plume_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/5c/Item_Bloodstained_Black_Plume.png");
+					$cards[] = new Card("bloodstained_final_hour_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/8c/Item_Bloodstained_Final_Hour.png");
+					$cards[] = new Card("bloodstained_chevaliers_goblet_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/4f/Item_Bloodstained_Chevalier%27s_Goblet.png");
+					$cards[] = new Card("bloodstained_iron_mask_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/0c/Item_Bloodstained_Iron_Mask.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("flower_of_creviced_cliff", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9f/Item_Flower_of_Creviced_Cliff.png");
-					$cards[] = new Card("feather_of_jagged_peaks", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Item_Feather_of_Jagged_Peaks.png");
-					$cards[] = new Card("sundial_of_enduring_jade", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/1d/Item_Sundial_of_Enduring_Jade.png");
-					$cards[] = new Card("goblet_of_chiseled_crag", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/02/Item_Goblet_of_Chiseled_Crag.png");
-					$cards[] = new Card("mask_of_solitude_basalt", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/09/Item_Mask_of_Solitude_Basalt.png");
+					$cards[] = new Card("flower_of_creviced_cliff_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9f/Item_Flower_of_Creviced_Cliff.png");
+					$cards[] = new Card("feather_of_jagged_peaks_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Item_Feather_of_Jagged_Peaks.png");
+					$cards[] = new Card("sundial_of_enduring_jade_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/1d/Item_Sundial_of_Enduring_Jade.png");
+					$cards[] = new Card("goblet_of_chiseled_crag_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/02/Item_Goblet_of_Chiseled_Crag.png");
+					$cards[] = new Card("mask_of_solitude_basalt_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/0/09/Item_Mask_of_Solitude_Basalt.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("summer_nights_bloom", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/a6/Item_Summer_Night%27s_Bloom.png");
-					$cards[] = new Card("summer_nights_finale", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/ec/Item_Summer_Night%27s_Finale.png");
-					$cards[] = new Card("summer_nights_moment", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/3/34/Item_Summer_Night%27s_Moment.png");
-					$cards[] = new Card("summer_nights_waterballoon", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/10/Item_Summer_Night%27s_Waterballoon.png");
-					$cards[] = new Card("summer_nights_mask", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/8a/Item_Summer_Night%27s_Mask.png");
+					$cards[] = new Card("summer_nights_bloom_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/a6/Item_Summer_Night%27s_Bloom.png");
+					$cards[] = new Card("summer_nights_finale_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/ec/Item_Summer_Night%27s_Finale.png");
+					$cards[] = new Card("summer_nights_moment_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/3/34/Item_Summer_Night%27s_Moment.png");
+					$cards[] = new Card("summer_nights_waterballoon_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/1/10/Item_Summer_Night%27s_Waterballoon.png");
+					$cards[] = new Card("summer_nights_mask_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/8a/Item_Summer_Night%27s_Mask.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("snowswept_memory", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/69/Item_Snowswept_Memory.png");
-					$cards[] = new Card("icebreakers_resolve", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/d/d6/Item_Icebreaker%27s_Resolve.png");
-					$cards[] = new Card("frozen_homelands_demise", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/58/Item_Frozen_Homeland%27s_Demise.png");
-					$cards[] = new Card("frost_weaved_dignity", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/6a/Item_Frost-Weaved_Dignity.png");
-					$cards[] = new Card("broken_rimes_echo", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/d/df/Item_Broken_Rime%27s_Echo.png");
+					$cards[] = new Card("snowswept_memory_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/69/Item_Snowswept_Memory.png");
+					$cards[] = new Card("icebreakers_resolve_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/d/d6/Item_Icebreaker%27s_Resolve.png");
+					$cards[] = new Card("frozen_homelands_demise_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/58/Item_Frozen_Homeland%27s_Demise.png");
+					$cards[] = new Card("frost_weaved_dignity_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/6/6a/Item_Frost-Weaved_Dignity.png");
+					$cards[] = new Card("broken_rimes_echo_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/d/df/Item_Broken_Rime%27s_Echo.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("gilded_corsage", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/40/Item_Gilded_Corsage.png");
-					$cards[] = new Card("gust_of_nostalgia", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/92/Item_Gust_of_Nostalgia.png");
-					$cards[] = new Card("copper_compass", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/83/Item_Copper_Compass.png");
-					$cards[] = new Card("goblet_of_thundering_deep", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9c/Item_Goblet_of_Thundering_Deep.png");
-					$cards[] = new Card("wine_stained_tricorne", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/a6/Item_Wine-Stained_Tricorne.png");
+					$cards[] = new Card("gilded_corsage_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/40/Item_Gilded_Corsage.png");
+					$cards[] = new Card("gust_of_nostalgia_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/92/Item_Gust_of_Nostalgia.png");
+					$cards[] = new Card("copper_compass_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/83/Item_Copper_Compass.png");
+					$cards[] = new Card("goblet_of_thundering_deep_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/9c/Item_Goblet_of_Thundering_Deep.png");
+					$cards[] = new Card("wine_stained_tricorne_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/a/a6/Item_Wine-Stained_Tricorne.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("flower_of_accolades", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/51/Item_Flower_of_Accolades.png");
-					$cards[] = new Card("ceremonial_war_plume", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/86/Item_Ceremonial_War-Plume.png");
-					$cards[] = new Card("orichalceous_time_dial", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/92/Item_Orichalceous_Time-Dial.png");
-					$cards[] = new Card("nobles_pledging_vessel", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Item_Noble%27s_Pledging_Vessel.png");
-					$cards[] = new Card("generals_ancient_helm", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b9/Item_General%27s_Ancient_Helm.png");
+					$cards[] = new Card("flower_of_accolades_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/5/51/Item_Flower_of_Accolades.png");
+					$cards[] = new Card("ceremonial_war_plume_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/86/Item_Ceremonial_War-Plume.png");
+					$cards[] = new Card("orichalceous_time_dial_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/9/92/Item_Orichalceous_Time-Dial.png");
+					$cards[] = new Card("nobles_pledging_vessel_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Item_Noble%27s_Pledging_Vessel.png");
+					$cards[] = new Card("generals_ancient_helm_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/b/b9/Item_General%27s_Ancient_Helm.png");
 				}
 				foreach(array(4, 5) as $rarity) {
-					$cards[] = new Card("stainless_bloom", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/e7/Item_Stainless_Bloom.png");
-					$cards[] = new Card("wise_doctors_pinion", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Item_Wise_Doctor%27s_Pinion.png");
-					$cards[] = new Card("moment_of_cessation", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/85/Item_Moment_of_Cessation.png");
-					$cards[] = new Card("surpassing_cup", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/4b/Item_Surpassing_Cup.png");
-					$cards[] = new Card("mocking_mask", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/2/23/Item_Mocking_Mask.png");
+					$cards[] = new Card("stainless_bloom_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/e7/Item_Stainless_Bloom.png");
+					$cards[] = new Card("wise_doctors_pinion_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Item_Wise_Doctor%27s_Pinion.png");
+					$cards[] = new Card("moment_of_cessation_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/8/85/Item_Moment_of_Cessation.png");
+					$cards[] = new Card("surpassing_cup_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/4/4b/Item_Surpassing_Cup.png");
+					$cards[] = new Card("mocking_mask_{}", $rarity, "https://static.wikia.nocookie.net/gensin-impact/images/2/23/Item_Mocking_Mask.png");
 				}
 				// Character experience
-				$cards[] = new Card("character_experience", 4, "https://static.wikia.nocookie.net/gensin-impact/images/2/26/Item_Hero%27s_Wit.png");
-				$cards[] = new Card("character_experience", 3, "https://static.wikia.nocookie.net/gensin-impact/images/0/07/Item_Adventurer%27s_Experience.png");
-				$cards[] = new Card("character_experience", 2, "https://static.wikia.nocookie.net/gensin-impact/images/6/60/Item_Wanderer%27s_Advice.png");
+				$cards[] = new Card("character_experience_4", 4, "https://static.wikia.nocookie.net/gensin-impact/images/2/26/Item_Hero%27s_Wit.png");
+				$cards[] = new Card("character_experience_3", 3, "https://static.wikia.nocookie.net/gensin-impact/images/0/07/Item_Adventurer%27s_Experience.png");
+				$cards[] = new Card("character_experience_2", 2, "https://static.wikia.nocookie.net/gensin-impact/images/6/60/Item_Wanderer%27s_Advice.png");
 				// Common ascension materials
-				$cards[] = new Card("slime", 3, "https://static.wikia.nocookie.net/gensin-impact/images/d/d8/Item_Slime_Concentrate.png");
-				$cards[] = new Card("slime", 2, "https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Item_Slime_Secretions.png");
-				$cards[] = new Card("slime", 1, "https://static.wikia.nocookie.net/gensin-impact/images/1/1c/Item_Slime_Condensate.png");
-				$cards[] = new Card("mask", 3, "https://static.wikia.nocookie.net/gensin-impact/images/9/91/Item_Ominous_Mask.png");
-				$cards[] = new Card("mask", 2, "https://static.wikia.nocookie.net/gensin-impact/images/2/2f/Item_Stained_Mask.png");
-				$cards[] = new Card("mask", 1, "https://static.wikia.nocookie.net/gensin-impact/images/6/69/Item_Damaged_Mask.png");
-				$cards[] = new Card("arrowhead", 3, "https://static.wikia.nocookie.net/gensin-impact/images/2/22/Item_Weathered_Arrowhead.png");
-				$cards[] = new Card("arrowhead", 2, "https://static.wikia.nocookie.net/gensin-impact/images/0/0d/Item_Sharp_Arrowhead.png");
-				$cards[] = new Card("arrowhead", 1, "https://static.wikia.nocookie.net/gensin-impact/images/0/01/Item_Firm_Arrowhead.png");
-				$cards[] = new Card("scroll", 3, "https://static.wikia.nocookie.net/gensin-impact/images/f/f0/Item_Forbidden_Curse_Scroll.png");
-				$cards[] = new Card("scroll", 2, "https://static.wikia.nocookie.net/gensin-impact/images/9/91/Item_Sealed_Scroll.png");
-				$cards[] = new Card("scroll", 1, "https://static.wikia.nocookie.net/gensin-impact/images/7/74/Item_Divining_Scroll.png");
-				$cards[] = new Card("hoarder_insignia", 3, "https://static.wikia.nocookie.net/gensin-impact/images/7/71/Item_Golden_Raven_Insignia.png");
-				$cards[] = new Card("hoarder_insignia", 2, "https://static.wikia.nocookie.net/gensin-impact/images/4/44/Item_Silver_Raven_Insignia.png");
-				$cards[] = new Card("hoarder_insignia", 1, "https://static.wikia.nocookie.net/gensin-impact/images/c/c9/Item_Treasure_Hoarder_Insignia.png");
-				$cards[] = new Card("fatui_insignia", 3, "https://static.wikia.nocookie.net/gensin-impact/images/d/db/Item_Lieutenant%27s_Insignia.png");
-				$cards[] = new Card("fatui_insignia", 2, "https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Item_Sergeant%27s_Insignia.png");
-				$cards[] = new Card("fatui_insignia", 1, "https://static.wikia.nocookie.net/gensin-impact/images/b/b2/Item_Recruit%27s_Insignia.png");
-				$cards[] = new Card("nectar", 3, "https://static.wikia.nocookie.net/gensin-impact/images/0/0b/Item_Energy_Nectar.png");
-				$cards[] = new Card("nectar", 2, "https://static.wikia.nocookie.net/gensin-impact/images/4/46/Item_Shimmering_Nectar.png");
-				$cards[] = new Card("nectar", 1, "https://static.wikia.nocookie.net/gensin-impact/images/8/8b/Item_Whopperflower_Nectar.png");
+				$cards[] = new Card("slime_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/d/d8/Item_Slime_Concentrate.png");
+				$cards[] = new Card("slime_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Item_Slime_Secretions.png");
+				$cards[] = new Card("slime_{}", 1, "https://static.wikia.nocookie.net/gensin-impact/images/1/1c/Item_Slime_Condensate.png");
+				$cards[] = new Card("mask_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/9/91/Item_Ominous_Mask.png");
+				$cards[] = new Card("mask_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/2/2f/Item_Stained_Mask.png");
+				$cards[] = new Card("mask_{}", 1, "https://static.wikia.nocookie.net/gensin-impact/images/6/69/Item_Damaged_Mask.png");
+				$cards[] = new Card("arrowhead_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/2/22/Item_Weathered_Arrowhead.png");
+				$cards[] = new Card("arrowhead_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/0/0d/Item_Sharp_Arrowhead.png");
+				$cards[] = new Card("arrowhead_{}", 1, "https://static.wikia.nocookie.net/gensin-impact/images/0/01/Item_Firm_Arrowhead.png");
+				$cards[] = new Card("scroll_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/f/f0/Item_Forbidden_Curse_Scroll.png");
+				$cards[] = new Card("scroll_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/9/91/Item_Sealed_Scroll.png");
+				$cards[] = new Card("scroll_{}", 1, "https://static.wikia.nocookie.net/gensin-impact/images/7/74/Item_Divining_Scroll.png");
+				$cards[] = new Card("hoarder_insignia_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/7/71/Item_Golden_Raven_Insignia.png");
+				$cards[] = new Card("hoarder_insignia_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/4/44/Item_Silver_Raven_Insignia.png");
+				$cards[] = new Card("hoarder_insignia_{}", 1, "https://static.wikia.nocookie.net/gensin-impact/images/c/c9/Item_Treasure_Hoarder_Insignia.png");
+				$cards[] = new Card("fatui_insignia_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/d/db/Item_Lieutenant%27s_Insignia.png");
+				$cards[] = new Card("fatui_insignia_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Item_Sergeant%27s_Insignia.png");
+				$cards[] = new Card("fatui_insignia_{}", 1, "https://static.wikia.nocookie.net/gensin-impact/images/b/b2/Item_Recruit%27s_Insignia.png");
+				$cards[] = new Card("nectar_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/0/0b/Item_Energy_Nectar.png");
+				$cards[] = new Card("nectar_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/4/46/Item_Shimmering_Nectar.png");
+				$cards[] = new Card("nectar_{}", 1, "https://static.wikia.nocookie.net/gensin-impact/images/8/8b/Item_Whopperflower_Nectar.png");
 				// Elite ascension materials
-				$cards[] = new Card("horn", 4, "https://static.wikia.nocookie.net/gensin-impact/images/6/64/Item_Black_Crystal_Horn.png");
-				$cards[] = new Card("horn", 3, "https://static.wikia.nocookie.net/gensin-impact/images/4/42/Item_Black_Bronze_Horn.png");
-				$cards[] = new Card("horn", 2, "https://static.wikia.nocookie.net/gensin-impact/images/c/c0/Item_Heavy_Horn.png");
-				$cards[] = new Card("ley_line", 4, "https://static.wikia.nocookie.net/gensin-impact/images/2/22/Item_Ley_Line_Sprouts.png");
-				$cards[] = new Card("ley_line", 3, "https://static.wikia.nocookie.net/gensin-impact/images/d/d2/Item_Dead_Ley_Line_Leaves.png");
-				$cards[] = new Card("ley_line", 2, "https://static.wikia.nocookie.net/gensin-impact/images/7/77/Item_Dead_Ley_Line_Branch.png");
-				$cards[] = new Card("bone_shard", 4, "https://static.wikia.nocookie.net/gensin-impact/images/6/60/Item_Fossilized_Bone_Shard.png");
-				$cards[] = new Card("bone_shard", 3, "https://static.wikia.nocookie.net/gensin-impact/images/f/ff/Item_Sturdy_Bone_Shard.png");
-				$cards[] = new Card("bone_shard", 2, "https://static.wikia.nocookie.net/gensin-impact/images/e/e5/Item_Fragile_Bone_Shard.png");
-				$cards[] = new Card("mist_grass", 4, "https://static.wikia.nocookie.net/gensin-impact/images/9/90/Item_Mist_Grass_Wick.png");
-				$cards[] = new Card("mist_grass", 3, "https://static.wikia.nocookie.net/gensin-impact/images/7/73/Item_Mist_Grass.png");
-				$cards[] = new Card("mist_grass", 2, "https://static.wikia.nocookie.net/gensin-impact/images/3/32/Item_Mist_Grass_Pollen.png");
-				$cards[] = new Card("sacrificial_knife", 4, "https://static.wikia.nocookie.net/gensin-impact/images/5/53/Item_Inspector%27s_Sacrificial_Knife.png");
-				$cards[] = new Card("sacrificial_knife", 3, "https://static.wikia.nocookie.net/gensin-impact/images/5/55/Item_Agent%27s_Sacrificial_Knife.png");
-				$cards[] = new Card("sacrificial_knife", 2, "https://static.wikia.nocookie.net/gensin-impact/images/2/28/Item_Hunter%27s_Sacrificial_Knife.png");
-				$cards[] = new Card("chaos_part", 4, "https://static.wikia.nocookie.net/gensin-impact/images/3/3e/Item_Chaos_Core.png");
-				$cards[] = new Card("chaos_part", 3, "https://static.wikia.nocookie.net/gensin-impact/images/1/1f/Item_Chaos_Circuit.png");
-				$cards[] = new Card("chaos_part", 2, "https://static.wikia.nocookie.net/gensin-impact/images/4/47/Item_Chaos_Device.png");
+				$cards[] = new Card("horn_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/6/64/Item_Black_Crystal_Horn.png");
+				$cards[] = new Card("horn_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/4/42/Item_Black_Bronze_Horn.png");
+				$cards[] = new Card("horn_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/c/c0/Item_Heavy_Horn.png");
+				$cards[] = new Card("ley_line_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/2/22/Item_Ley_Line_Sprouts.png");
+				$cards[] = new Card("ley_line_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/d/d2/Item_Dead_Ley_Line_Leaves.png");
+				$cards[] = new Card("ley_line_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/7/77/Item_Dead_Ley_Line_Branch.png");
+				$cards[] = new Card("bone_shard_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/6/60/Item_Fossilized_Bone_Shard.png");
+				$cards[] = new Card("bone_shard_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/f/ff/Item_Sturdy_Bone_Shard.png");
+				$cards[] = new Card("bone_shard_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/e/e5/Item_Fragile_Bone_Shard.png");
+				$cards[] = new Card("mist_grass_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/9/90/Item_Mist_Grass_Wick.png");
+				$cards[] = new Card("mist_grass_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/7/73/Item_Mist_Grass.png");
+				$cards[] = new Card("mist_grass_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/3/32/Item_Mist_Grass_Pollen.png");
+				$cards[] = new Card("sacrificial_knife_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/5/53/Item_Inspector%27s_Sacrificial_Knife.png");
+				$cards[] = new Card("sacrificial_knife_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/5/55/Item_Agent%27s_Sacrificial_Knife.png");
+				$cards[] = new Card("sacrificial_knife_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/2/28/Item_Hunter%27s_Sacrificial_Knife.png");
+				$cards[] = new Card("chaos_part_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/3/3e/Item_Chaos_Core.png");
+				$cards[] = new Card("chaos_part_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/1/1f/Item_Chaos_Circuit.png");
+				$cards[] = new Card("chaos_part_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/4/47/Item_Chaos_Device.png");
 				// Boss drops
-				$cards[] = new Card("boreas_tail", 5, "https://static.wikia.nocookie.net/gensin-impact/images/6/66/Item_Tail_of_Boreas.png");
-				$cards[] = new Card("boreas_ring", 5, "https://static.wikia.nocookie.net/gensin-impact/images/d/d6/Item_Ring_of_Boreas.png");
-				$cards[] = new Card("boreas_spirit", 5, "https://static.wikia.nocookie.net/gensin-impact/images/8/81/Item_Spirit_Locket_of_Boreas.png");
-				$cards[] = new Card("dvalin_plume", 5, "https://static.wikia.nocookie.net/gensin-impact/images/b/bf/Item_Dvalin%27s_Plume.png");
-				$cards[] = new Card("dvalin_claw", 5, "https://static.wikia.nocookie.net/gensin-impact/images/a/a8/Item_Dvalin%27s_Claw.png");
-				$cards[] = new Card("dvalin_sigh", 5, "https://static.wikia.nocookie.net/gensin-impact/images/0/07/Item_Dvalin%27s_Sigh.png");
-				$cards[] = new Card("childe_tusk", 5, "https://static.wikia.nocookie.net/gensin-impact/images/1/1c/Item_Tusk_of_Monoceros_Caeli.png");
-				$cards[] = new Card("childe_shard", 5, "https://static.wikia.nocookie.net/gensin-impact/images/4/48/Item_Shard_of_a_Foul_Legacy.png");
-				$cards[] = new Card("childe_shadow", 5, "https://static.wikia.nocookie.net/gensin-impact/images/5/5d/Item_Shadow_of_the_Warrior.png");
-				$cards[] = new Card("azhdaha_crown", 5, "https://static.wikia.nocookie.net/gensin-impact/images/0/02/Item_Dragon_Lord%27s_Crown.png");
-				$cards[] = new Card("azhdaha_branch", 5, "https://static.wikia.nocookie.net/gensin-impact/images/b/b1/Item_Bloodjade_Branch.png");
-				$cards[] = new Card("azhdaha_scale", 5, "https://static.wikia.nocookie.net/gensin-impact/images/e/e1/Item_Gilded_Scale.png");
+				$cards[] = new Card("boreas_tail_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/6/66/Item_Tail_of_Boreas.png");
+				$cards[] = new Card("boreas_ring_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/d/d6/Item_Ring_of_Boreas.png");
+				$cards[] = new Card("boreas_spirit_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/8/81/Item_Spirit_Locket_of_Boreas.png");
+				$cards[] = new Card("dvalin_plume_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/b/bf/Item_Dvalin%27s_Plume.png");
+				$cards[] = new Card("dvalin_claw_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/a/a8/Item_Dvalin%27s_Claw.png");
+				$cards[] = new Card("dvalin_sigh_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/0/07/Item_Dvalin%27s_Sigh.png");
+				$cards[] = new Card("childe_tusk_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/1/1c/Item_Tusk_of_Monoceros_Caeli.png");
+				$cards[] = new Card("childe_shard_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/4/48/Item_Shard_of_a_Foul_Legacy.png");
+				$cards[] = new Card("childe_shadow_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/5/5d/Item_Shadow_of_the_Warrior.png");
+				$cards[] = new Card("azhdaha_crown_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/0/02/Item_Dragon_Lord%27s_Crown.png");
+				$cards[] = new Card("azhdaha_branch_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/b/b1/Item_Bloodjade_Branch.png");
+				$cards[] = new Card("azhdaha_scale_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/e/e1/Item_Gilded_Scale.png");
 				// Boss material
 				$cards[] = new Card("hurricane_seed", 4, "https://static.wikia.nocookie.net/gensin-impact/images/5/5e/Item_Hurricane_Seed.png");
 				$cards[] = new Card("hoarfrost_core", 4, "https://static.wikia.nocookie.net/gensin-impact/images/b/b5/Item_Hoarfrost_Core.png");
@@ -479,80 +479,80 @@
 				$cards[] = new Card("juvenile_jade", 4, "https://static.wikia.nocookie.net/gensin-impact/images/f/f1/Item_Juvenile_Jade.png");
 				$cards[] = new Card("marionette_core", 4, "https://static.wikia.nocookie.net/gensin-impact/images/1/1d/Item_Marionette_Core.png");
 				// Ascension gems
-				$cards[] = new Card("brilliant_diamond", 5, "https://static.wikia.nocookie.net/gensin-impact/images/0/0b/Item_Brilliant_Diamond_Gemstone.png");
-				$cards[] = new Card("brilliant_diamond", 4, "https://static.wikia.nocookie.net/gensin-impact/images/7/74/Item_Brilliant_Diamond_Chunk.png");
-				$cards[] = new Card("brilliant_diamond", 3, "https://static.wikia.nocookie.net/gensin-impact/images/3/3d/Item_Brilliant_Diamond_Fragment.png");
-				$cards[] = new Card("brilliant_diamond", 2, "https://static.wikia.nocookie.net/gensin-impact/images/7/72/Item_Brilliant_Diamond_Sliver.png");
-				$cards[] = new Card("vayuda", 5, "https://static.wikia.nocookie.net/gensin-impact/images/3/32/Item_Vayuda_Turquoise_Gemstone.png");
-				$cards[] = new Card("vayuda", 4, "https://static.wikia.nocookie.net/gensin-impact/images/3/33/Item_Vayuda_Turquoise_Chunk.png");
-				$cards[] = new Card("vayuda", 3, "https://static.wikia.nocookie.net/gensin-impact/images/7/71/Item_Vayuda_Turquoise_Fragment.png");
-				$cards[] = new Card("vayuda", 2, "https://static.wikia.nocookie.net/gensin-impact/images/9/93/Item_Vayuda_Turquoise_Sliver.png");
-				$cards[] = new Card("shivada", 5, "https://static.wikia.nocookie.net/gensin-impact/images/e/e9/Item_Shivada_Jade_Gemstone.png");
-				$cards[] = new Card("shivada", 4, "https://static.wikia.nocookie.net/gensin-impact/images/4/41/Item_Shivada_Jade_Chunk.png");
-				$cards[] = new Card("shivada", 3, "https://static.wikia.nocookie.net/gensin-impact/images/9/9a/Item_Shivada_Jade_Fragment.png");
-				$cards[] = new Card("shivada", 2, "https://static.wikia.nocookie.net/gensin-impact/images/8/87/Item_Shivada_Jade_Sliver.png");
-				$cards[] = new Card("vajrada", 5, "https://static.wikia.nocookie.net/gensin-impact/images/b/be/Item_Vajrada_Amethyst_Gemstone.png");
-				$cards[] = new Card("vajrada", 4, "https://static.wikia.nocookie.net/gensin-impact/images/c/c1/Item_Vajrada_Amethyst_Chunk.png");
-				$cards[] = new Card("vajrada", 3, "https://static.wikia.nocookie.net/gensin-impact/images/c/cb/Item_Vajrada_Amethyst_Fragment.png");
-				$cards[] = new Card("vajrada", 2, "https://static.wikia.nocookie.net/gensin-impact/images/3/39/Item_Vajrada_Amethyst_Sliver.png");
-				$cards[] = new Card("prithiva", 5, "https://static.wikia.nocookie.net/gensin-impact/images/e/eb/Item_Prithiva_Topaz_Gemstone.png");
-				$cards[] = new Card("prithiva", 4, "https://static.wikia.nocookie.net/gensin-impact/images/4/4b/Item_Prithiva_Topaz_Chunk.png");
-				$cards[] = new Card("prithiva", 3, "https://static.wikia.nocookie.net/gensin-impact/images/3/3e/Item_Prithiva_Topaz_Fragment.png");
-				$cards[] = new Card("prithiva", 2, "https://static.wikia.nocookie.net/gensin-impact/images/3/33/Item_Prithiva_Topaz_Sliver.png");
-				$cards[] = new Card("varunada", 5, "https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Item_Varunada_Lazurite_Gemstone.png");
-				$cards[] = new Card("varunada", 4, "https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Item_Varunada_Lazurite_Chunk.png");
-				$cards[] = new Card("varunada", 3, "https://static.wikia.nocookie.net/gensin-impact/images/f/f6/Item_Varunada_Lazurite_Fragment.png");
-				$cards[] = new Card("varunada", 2, "https://static.wikia.nocookie.net/gensin-impact/images/f/f8/Item_Varunada_Lazurite_Sliver.png");
-				$cards[] = new Card("agnidus", 5, "https://static.wikia.nocookie.net/gensin-impact/images/0/0d/Item_Agnidus_Agate_Gemstone.png");
-				$cards[] = new Card("agnidus", 4, "https://static.wikia.nocookie.net/gensin-impact/images/0/00/Item_Agnidus_Agate_Chunk.png");
-				$cards[] = new Card("agnidus", 3, "https://static.wikia.nocookie.net/gensin-impact/images/e/ec/Item_Agnidus_Agate_Fragment.png");
-				$cards[] = new Card("agnidus", 2, "https://static.wikia.nocookie.net/gensin-impact/images/5/51/Item_Agnidus_Agate_Sliver.png");
+				$cards[] = new Card("brilliant_diamond_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/0/0b/Item_Brilliant_Diamond_Gemstone.png");
+				$cards[] = new Card("brilliant_diamond_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/7/74/Item_Brilliant_Diamond_Chunk.png");
+				$cards[] = new Card("brilliant_diamond_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/3/3d/Item_Brilliant_Diamond_Fragment.png");
+				$cards[] = new Card("brilliant_diamond_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/7/72/Item_Brilliant_Diamond_Sliver.png");
+				$cards[] = new Card("vayuda_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/3/32/Item_Vayuda_Turquoise_Gemstone.png");
+				$cards[] = new Card("vayuda_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/3/33/Item_Vayuda_Turquoise_Chunk.png");
+				$cards[] = new Card("vayuda_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/7/71/Item_Vayuda_Turquoise_Fragment.png");
+				$cards[] = new Card("vayuda_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/9/93/Item_Vayuda_Turquoise_Sliver.png");
+				$cards[] = new Card("shivada_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/e/e9/Item_Shivada_Jade_Gemstone.png");
+				$cards[] = new Card("shivada_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/4/41/Item_Shivada_Jade_Chunk.png");
+				$cards[] = new Card("shivada_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/9/9a/Item_Shivada_Jade_Fragment.png");
+				$cards[] = new Card("shivada_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/8/87/Item_Shivada_Jade_Sliver.png");
+				$cards[] = new Card("vajrada_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/b/be/Item_Vajrada_Amethyst_Gemstone.png");
+				$cards[] = new Card("vajrada_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/c/c1/Item_Vajrada_Amethyst_Chunk.png");
+				$cards[] = new Card("vajrada_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/c/cb/Item_Vajrada_Amethyst_Fragment.png");
+				$cards[] = new Card("vajrada_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/3/39/Item_Vajrada_Amethyst_Sliver.png");
+				$cards[] = new Card("prithiva_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/e/eb/Item_Prithiva_Topaz_Gemstone.png");
+				$cards[] = new Card("prithiva_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/4/4b/Item_Prithiva_Topaz_Chunk.png");
+				$cards[] = new Card("prithiva_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/3/3e/Item_Prithiva_Topaz_Fragment.png");
+				$cards[] = new Card("prithiva_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/3/33/Item_Prithiva_Topaz_Sliver.png");
+				$cards[] = new Card("varunada_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Item_Varunada_Lazurite_Gemstone.png");
+				$cards[] = new Card("varunada_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/f/f4/Item_Varunada_Lazurite_Chunk.png");
+				$cards[] = new Card("varunada_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/f/f6/Item_Varunada_Lazurite_Fragment.png");
+				$cards[] = new Card("varunada_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/f/f8/Item_Varunada_Lazurite_Sliver.png");
+				$cards[] = new Card("agnidus_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/0/0d/Item_Agnidus_Agate_Gemstone.png");
+				$cards[] = new Card("agnidus_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/0/00/Item_Agnidus_Agate_Chunk.png");
+				$cards[] = new Card("agnidus_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/e/ec/Item_Agnidus_Agate_Fragment.png");
+				$cards[] = new Card("agnidus_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/5/51/Item_Agnidus_Agate_Sliver.png");
 				// Talent books
-				$cards[] = new Card("book_freedom", 4, "https://static.wikia.nocookie.net/gensin-impact/images/c/c4/Item_Philosophies_of_Freedom.png");
-				$cards[] = new Card("book_freedom", 3, "https://static.wikia.nocookie.net/gensin-impact/images/1/1a/Item_Guide_to_Freedom.png");
-				$cards[] = new Card("book_freedom", 2, "https://static.wikia.nocookie.net/gensin-impact/images/3/3a/Item_Teachings_of_Freedom.png");
-				$cards[] = new Card("book_resistance", 4, "https://static.wikia.nocookie.net/gensin-impact/images/0/0b/Item_Philosophies_of_Resistance.png");
-				$cards[] = new Card("book_resistance", 3, "https://static.wikia.nocookie.net/gensin-impact/images/b/bf/Item_Guide_to_Resistance.png");
-				$cards[] = new Card("book_resistance", 2, "https://static.wikia.nocookie.net/gensin-impact/images/3/33/Item_Teachings_of_Resistance.png");
-				$cards[] = new Card("book_ballad", 4, "https://static.wikia.nocookie.net/gensin-impact/images/7/7e/Item_Philosophies_of_Ballad.png");
-				$cards[] = new Card("book_ballad", 3, "https://static.wikia.nocookie.net/gensin-impact/images/2/2f/Item_Guide_to_Ballad.png");
-				$cards[] = new Card("book_ballad", 2, "https://static.wikia.nocookie.net/gensin-impact/images/b/b4/Item_Teachings_of_Ballad.png");
-				$cards[] = new Card("book_prosperity", 4, "https://static.wikia.nocookie.net/gensin-impact/images/b/bd/Item_Philosophies_of_Prosperity.png");
-				$cards[] = new Card("book_prosperity", 3, "https://static.wikia.nocookie.net/gensin-impact/images/6/67/Item_Guide_to_Prosperity.png");
-				$cards[] = new Card("book_prosperity", 2, "https://static.wikia.nocookie.net/gensin-impact/images/9/9e/Item_Teachings_of_Prosperity.png");
-				$cards[] = new Card("book_diligence", 4, "https://static.wikia.nocookie.net/gensin-impact/images/c/c2/Item_Philosophies_of_Diligence.png");
-				$cards[] = new Card("book_diligence", 3, "https://static.wikia.nocookie.net/gensin-impact/images/9/9f/Item_Guide_to_Diligence.png");
-				$cards[] = new Card("book_diligence", 2, "https://static.wikia.nocookie.net/gensin-impact/images/a/a7/Item_Teachings_of_Diligence.png");
-				$cards[] = new Card("book_gold", 4, "https://static.wikia.nocookie.net/gensin-impact/images/0/01/Item_Philosophies_of_Gold.png");
-				$cards[] = new Card("book_gold", 3, "https://static.wikia.nocookie.net/gensin-impact/images/4/43/Item_Guide_to_Gold.png");
-				$cards[] = new Card("book_gold", 2, "https://static.wikia.nocookie.net/gensin-impact/images/7/7f/Item_Teachings_of_Gold.png");
+				$cards[] = new Card("book_freedom_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/c/c4/Item_Philosophies_of_Freedom.png");
+				$cards[] = new Card("book_freedom_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/1/1a/Item_Guide_to_Freedom.png");
+				$cards[] = new Card("book_freedom_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/3/3a/Item_Teachings_of_Freedom.png");
+				$cards[] = new Card("book_resistance_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/0/0b/Item_Philosophies_of_Resistance.png");
+				$cards[] = new Card("book_resistance_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/b/bf/Item_Guide_to_Resistance.png");
+				$cards[] = new Card("book_resistance_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/3/33/Item_Teachings_of_Resistance.png");
+				$cards[] = new Card("book_ballad_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/7/7e/Item_Philosophies_of_Ballad.png");
+				$cards[] = new Card("book_ballad_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/2/2f/Item_Guide_to_Ballad.png");
+				$cards[] = new Card("book_ballad_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/b/b4/Item_Teachings_of_Ballad.png");
+				$cards[] = new Card("book_prosperity_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/b/bd/Item_Philosophies_of_Prosperity.png");
+				$cards[] = new Card("book_prosperity_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/6/67/Item_Guide_to_Prosperity.png");
+				$cards[] = new Card("book_prosperity_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/9/9e/Item_Teachings_of_Prosperity.png");
+				$cards[] = new Card("book_diligence_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/c/c2/Item_Philosophies_of_Diligence.png");
+				$cards[] = new Card("book_diligence_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/9/9f/Item_Guide_to_Diligence.png");
+				$cards[] = new Card("book_diligence_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/a/a7/Item_Teachings_of_Diligence.png");
+				$cards[] = new Card("book_gold_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/0/01/Item_Philosophies_of_Gold.png");
+				$cards[] = new Card("book_gold_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/4/43/Item_Guide_to_Gold.png");
+				$cards[] = new Card("book_gold_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/7/7f/Item_Teachings_of_Gold.png");
 				// Event materials
 				$cards[] = new Card("crown_of_insight", 5, "https://static.wikia.nocookie.net/gensin-impact/images/0/04/Item_Crown_of_Insight.png");
 				// Weapon ascension materials
-				$cards[] = new Card("decarabian", 5, "https://static.wikia.nocookie.net/gensin-impact/images/4/4c/Item_Scattered_Piece_of_Decarabian%27s_Dream.png");
-				$cards[] = new Card("decarabian", 4, "https://static.wikia.nocookie.net/gensin-impact/images/8/8a/Item_Fragment_of_Decarabian%27s_Epic.png");
-				$cards[] = new Card("decarabian", 3, "https://static.wikia.nocookie.net/gensin-impact/images/9/96/Item_Debris_of_Decarabian%27s_City.png");
-				$cards[] = new Card("decarabian", 2, "https://static.wikia.nocookie.net/gensin-impact/images/d/d7/Item_Tile_of_Decarabian%27s_Tower.png");
-				$cards[] = new Card("boreal_wolf", 5, "https://static.wikia.nocookie.net/gensin-impact/images/e/e0/Item_Boreal_Wolf%27s_Nostalgia.png");
-				$cards[] = new Card("boreal_wolf", 4, "https://static.wikia.nocookie.net/gensin-impact/images/9/98/Item_Boreal_Wolf%27s_Broken_Fang.png");
-				$cards[] = new Card("boreal_wolf", 3, "https://static.wikia.nocookie.net/gensin-impact/images/7/71/Item_Boreal_Wolf%27s_Cracked_Tooth.png");
-				$cards[] = new Card("boreal_wolf", 2, "https://static.wikia.nocookie.net/gensin-impact/images/3/33/Item_Boreal_Wolf%27s_Milk_Tooth.png");
-				$cards[] = new Card("dandelion_gladiator", 5, "https://static.wikia.nocookie.net/gensin-impact/images/b/b4/Item_Dream_of_the_Dandelion_Gladiator.png");
-				$cards[] = new Card("dandelion_gladiator", 4, "https://static.wikia.nocookie.net/gensin-impact/images/4/40/Item_Shackles_of_the_Dandelion_Gladiator.png");
-				$cards[] = new Card("dandelion_gladiator", 3, "https://static.wikia.nocookie.net/gensin-impact/images/a/ad/Item_Chains_of_the_Dandelion_Gladiator.png");
-				$cards[] = new Card("dandelion_gladiator", 2, "https://static.wikia.nocookie.net/gensin-impact/images/0/05/Item_Fetters_of_the_Dandelion_Gladiator.png");
-				$cards[] = new Card("guyun", 5, "https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Item_Divine_Body_from_Guyun.png");
-				$cards[] = new Card("guyun", 4, "https://static.wikia.nocookie.net/gensin-impact/images/9/94/Item_Relic_from_Guyun.png");
-				$cards[] = new Card("guyun", 3, "https://static.wikia.nocookie.net/gensin-impact/images/c/cb/Item_Lustrous_Stone_from_Guyun.png");
-				$cards[] = new Card("guyun", 2, "https://static.wikia.nocookie.net/gensin-impact/images/5/5d/Item_Luminous_Sands_from_Guyun.png");
-				$cards[] = new Card("mist_veiled", 5, "https://static.wikia.nocookie.net/gensin-impact/images/a/a3/Item_Mist_Veiled_Primo_Elixir.png");
-				$cards[] = new Card("mist_veiled", 4, "https://static.wikia.nocookie.net/gensin-impact/images/9/9b/Item_Mist_Veiled_Gold_Elixir.png");
-				$cards[] = new Card("mist_veiled", 3, "https://static.wikia.nocookie.net/gensin-impact/images/0/0f/Item_Mist_Veiled_Mercury_Elixir.png");
-				$cards[] = new Card("mist_veiled", 2, "https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Item_Mist_Veiled_Lead_Elixir.png");
-				$cards[] = new Card("aerosiderite", 5, "https://static.wikia.nocookie.net/gensin-impact/images/4/48/Item_Chunk_of_Aerosiderite.png");
-				$cards[] = new Card("aerosiderite", 4, "https://static.wikia.nocookie.net/gensin-impact/images/1/17/Item_Bit_of_Aerosiderite.png");
-				$cards[] = new Card("aerosiderite", 3, "https://static.wikia.nocookie.net/gensin-impact/images/0/0d/Item_Piece_of_Aerosiderite.png");
-				$cards[] = new Card("aerosiderite", 2, "https://static.wikia.nocookie.net/gensin-impact/images/4/47/Item_Grain_of_Aerosiderite.png");
+				$cards[] = new Card("decarabian_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/4/4c/Item_Scattered_Piece_of_Decarabian%27s_Dream.png");
+				$cards[] = new Card("decarabian_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/8/8a/Item_Fragment_of_Decarabian%27s_Epic.png");
+				$cards[] = new Card("decarabian_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/9/96/Item_Debris_of_Decarabian%27s_City.png");
+				$cards[] = new Card("decarabian_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/d/d7/Item_Tile_of_Decarabian%27s_Tower.png");
+				$cards[] = new Card("boreal_wolf_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/e/e0/Item_Boreal_Wolf%27s_Nostalgia.png");
+				$cards[] = new Card("boreal_wolf_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/9/98/Item_Boreal_Wolf%27s_Broken_Fang.png");
+				$cards[] = new Card("boreal_wolf_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/7/71/Item_Boreal_Wolf%27s_Cracked_Tooth.png");
+				$cards[] = new Card("boreal_wolf_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/3/33/Item_Boreal_Wolf%27s_Milk_Tooth.png");
+				$cards[] = new Card("dandelion_gladiator_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/b/b4/Item_Dream_of_the_Dandelion_Gladiator.png");
+				$cards[] = new Card("dandelion_gladiator_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/4/40/Item_Shackles_of_the_Dandelion_Gladiator.png");
+				$cards[] = new Card("dandelion_gladiator_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/a/ad/Item_Chains_of_the_Dandelion_Gladiator.png");
+				$cards[] = new Card("dandelion_gladiator_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/0/05/Item_Fetters_of_the_Dandelion_Gladiator.png");
+				$cards[] = new Card("guyun_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Item_Divine_Body_from_Guyun.png");
+				$cards[] = new Card("guyun_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/9/94/Item_Relic_from_Guyun.png");
+				$cards[] = new Card("guyun_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/c/cb/Item_Lustrous_Stone_from_Guyun.png");
+				$cards[] = new Card("guyun_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/5/5d/Item_Luminous_Sands_from_Guyun.png");
+				$cards[] = new Card("mist_veiled_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/a/a3/Item_Mist_Veiled_Primo_Elixir.png");
+				$cards[] = new Card("mist_veiled_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/9/9b/Item_Mist_Veiled_Gold_Elixir.png");
+				$cards[] = new Card("mist_veiled_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/0/0f/Item_Mist_Veiled_Mercury_Elixir.png");
+				$cards[] = new Card("mist_veiled_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Item_Mist_Veiled_Lead_Elixir.png");
+				$cards[] = new Card("aerosiderite_{}", 5, "https://static.wikia.nocookie.net/gensin-impact/images/4/48/Item_Chunk_of_Aerosiderite.png");
+				$cards[] = new Card("aerosiderite_{}", 4, "https://static.wikia.nocookie.net/gensin-impact/images/1/17/Item_Bit_of_Aerosiderite.png");
+				$cards[] = new Card("aerosiderite_{}", 3, "https://static.wikia.nocookie.net/gensin-impact/images/0/0d/Item_Piece_of_Aerosiderite.png");
+				$cards[] = new Card("aerosiderite_{}", 2, "https://static.wikia.nocookie.net/gensin-impact/images/4/47/Item_Grain_of_Aerosiderite.png");
 				// Food
 				$cards[] = new Card("apple", 1, "https://static.wikia.nocookie.net/gensin-impact/images/8/8a/Item_Apple.png");
 				$cards[] = new Card("sunsettia", 1, "https://static.wikia.nocookie.net/gensin-impact/images/4/45/Item_Sunsettia.png");
