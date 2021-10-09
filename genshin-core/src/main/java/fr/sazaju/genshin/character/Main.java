@@ -40,6 +40,55 @@ import fr.sazaju.genshin.tab.Tab;
 public class Main {
 
 	public static void main(String[] args) {
+		/* TODO
+		Weapon fluorescence = WeaponProfile.FLUORESCENCE.create()
+		WeaponState currentState = fluorescence.getCurrentState();
+		
+		WeaponState nextState = fluorescence.addExperience(i);
+		WeaponState nextState = fluorescence.ascend();
+		WeaponState nextState = fluorescence.refine(otherFluorescenceState);
+		WeaponState nextState = fluorescence.reinforce(otherWeaponState);
+		
+		boolean canDo = fluorescence.canDo().addExperience(i);
+		boolean canDo = fluorescence.canDo().ascend();
+		boolean canDo = fluorescence.canDo().refine(otherFluorescenceState);
+		boolean canDo = fluorescence.canDo().reinforce(otherWeaponState);
+		
+		Stream<Evolution> evolutions = currentState.evolutions();
+		Evolution evolution = evolutions.findAny().orElseThrow(() -> new RuntimeException("No more evolution available"));
+		Diff diff = evolution.requirements();
+		boolean isApplicable = evolution.isApplicable(data);
+		WeaponState nextState = evolution.result();
+		
+		Weapon evolvedFluorescence = fluorescence.evolve(nextState);
+		
+		////////////////////////////////////////
+		
+		Character razor = CharacterProfile.RAZOR.create();
+		CharacterState currentState = razor.getCurrentState();
+		
+		CharacterState nextState = currentState.addExperience(i);
+		CharacterState nextState = currentState.ascend();
+		CharacterState nextState = currentState.useWeapon(fluorescence); // Weapon, pas WeaponState, parce que faire évoluer l'arme ne doit pas faire perdre le lien
+		CharacterState nextState = currentState.useArtefact(artefact); // Artefact, pas ArtefactState, parce que faire évoluer l'artéfact ne doit pas faire perdre le lien
+		// Au lieu de Weapon/Artefact, ça pourrait être le slot : on fait évoluer le slot en faisant évoluer soit l'état de l'item à état, soit l'état de la stack
+		
+		boolean canDo = currentState.canDo().addExperience(i);
+		boolean canDo = currentState.canDo().ascend();
+		boolean canDo = currentState.canDo().useWeapon(fluorescence);
+		boolean canDo = currentState.canDo().useArtefact(artefact);
+		
+		Stream<Evolution> evolutions = currentState.evolutions();
+		Evolution evolution = evolutions.findAny().orElseThrow(() -> new RuntimeException("No more evolution available"));
+		Diff diff = evolution.requirements();
+		boolean isApplicable = evolution.isApplicable(data);
+		CharacterState nextState = evolution.result();
+		
+		Character evolvedRazor = razor.evolve(nextState);
+		*/
+		
+		
+		
 		Weapon weapon = WeaponType.LION_S_ROAR.buildInstance()//
 				.withWeaponLevel(1)//
 				.create();

@@ -34,6 +34,7 @@
 			<button onclick="openTab('home')">Accueil</button>
 			<button onclick="openTab('inventory')">Inventaire</button>
 			<button onclick="openTab('character-banner')">Simulateur de tirages</button>
+			<button onclick="openTab('map')">Carte</button>
 			<button onclick="openTab('contact')">Contact</button>
 			<script type="text/javascript">
 				function openTab(idToDisplay) {
@@ -50,6 +51,7 @@
 			<div id="home"><?php include "./html/home.html"; ?></div>
 			<div id="contact"><?php include "./html/contact.html"; ?></div>
 			<div id="character-banner"><?php include "./html/character-banner.html"; ?></div>
+			<div id="map"><?php include "./html/map.html"; ?></div>
 			<div id="inventory"><?php include "./html/inventory.php"; ?></div>
 		</div>
 		<div id="loadingScreen">
